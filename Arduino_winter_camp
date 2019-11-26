@@ -1,0 +1,49 @@
+int a = 3; //задаем имена для ШИМ портов
+int b = 5;
+int c = 6;
+int d = 9;
+   
+void setup() {
+    pinMode(a, OUTPUT);// инициализируем порты как выход
+    pinMode(b, OUTPUT);
+    pinMode(c, OUTPUT);
+    pinMode(d, OUTPUT);
+}
+
+void loop() {
+  // плавное включение светодиода "а"
+  for(int i=0;i<=255;i++) {
+    analogWrite(a, i);
+    delay(1); 
+  }
+  // перед тем как начнет затухать светодиод "а" плавно включаем светодиод "b"
+  for(int i=0;i<=255;i++) {
+    analogWrite(b, i);
+    delay(1); 
+  }
+  // плавно выключаем светодиод "а"
+  for(int i = 255; i >= 0; i--){
+    analogWrite(a, i);
+    delay(1);
+  }
+  for(int i=0;i<=255;i++) {
+    analogWrite(c, i);
+    delay(1); 
+  }
+  for(int i = 255; i >= 0; i--){
+    analogWrite(b, i);
+    delay(1);
+  }
+   for(int i=0;i<=255;i++) {
+    analogWrite(d, i);
+    delay(1); 
+  }
+  for(int i = 255; i >= 0; i--){
+    analogWrite(c, i);
+    delay(1);
+  }
+   for(int i = 255; i >= 0; i--){
+    analogWrite(d, i);
+    delay(1);
+  }
+}
